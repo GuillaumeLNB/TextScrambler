@@ -20,7 +20,7 @@ The ´-c´ option transforms the text by randomly changing the Latin letters int
 
 The ´-z´ randomly inserts [zero-width joiner][4] and [zero-width non-joiner][3] chararcters within the text.It usually doesn't affect the reading for a Latin text (English, French, Spanish...)
 
-#### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZWJ ([from Barack Obama Wikipedia's page][2]) :
+#### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZW(N)J ([from Barack Obama Wikipedia's page][2]) :
 
 Β‍а‌r‍а‍с‍k‌ Η‌u‍ѕ‍ѕ‍е‍і‍n‌ О‌b‌а‌m‍а‍ І‍І‍ (b‌ο‍r‌n‍ Α‌u‍g‍u‍ѕ‍t‌ 4, 1961) і‍ѕ‌ а‌n‌ А‍m‌е‌r‍і‍с‌а‍n‌ а‌t‌t‍о‌r‌n‌е‌y‍ а‌n‌d‌ р‍ο‍l‍і‌t‍і‍с‌і‍а‌n‌ w‍h‍ο‍ ѕ‌е‌r‌v‍е‌d‌ а‌ѕ‍ t‌h‌е‍ 44t‍h‌ Ρ‍r‍е‍ѕ‍і‌d‌е‌n‌t‍ ο‍f‍ t‌h‌е‌ U‌n‌і‍t‍е‌d‍ Ѕ‌t‍а‍t‍е‍ѕ‌ f‍r‍ο‌m‍ Ј‌а‍n‌u‌а‍r‍y‍ 20, 2009, t‍ο‍ Ј‍а‌n‌u‍а‍r‍y‌ 20, 2017. А‌ m‌е‌m‍b‍е‍r‌ о‌f‍ t‍h‍е‍ D‍е‍m‍ο‌с‍r‌а‍t‌і‌с‍ Ρ‍а‍r‌t‍y‌, h‌е‍ w‌а‍ѕ‌ t‌h‌е‍ f‍і‍r‍ѕ‍t‌ Α‍f‍r‌і‍с‍а‌n‌ А‍m‍е‍r‌і‌с‍а‌n‌ t‌ο‍ ѕ‌е‍r‍v‌е‍ а‍ѕ‌ р‍r‍е‍ѕ‌і‌d‍е‌n‍t‌. Η‌е‌ w‌а‍ѕ‍ р‌r‌е‍v‌і‍ο‌u‌ѕ‌l‌y‌ а‍ U‌n‌і‌t‍е‌d‍ Ѕ‍t‌а‌t‍е‌ѕ‍ Ѕ‍е‌n‍а‍t‌ο‌r‌ f‌r‌о‍m‍ І‌l‍l‌і‍n‍ο‌і‍ѕ‌ а‌n‌d‍ а‌ m‌е‌m‌b‍е‌r‍ ο‌f‌ t‍h‌е‌ І‌l‌l‍і‍n‍ο‌і‍ѕ‌ Ѕ‌t‍а‌t‍е‍ Ѕ‍е‍n‌а‌t‌е‌.
 
@@ -32,7 +32,7 @@ Funny thing is regular search engines can't find the original webpage (as free o
 
 
 It is also possible using this method to generate differents strings.
-For instances each of the following strings is unique :
+For instance each of the following strings is unique:
 * G‍u‍і‍l‍l‌а‌u‍m‌е
 * G‌‍u‍‍і‍‍l‍‍l‍‌а‍‌u‌‍m‍‌е
 * G‌‌‍u‌‍‍і‍‍‍l‌‍‍l‌‍‌а‌‍‌u‌‌‍m‍‍‌е
