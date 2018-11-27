@@ -16,9 +16,9 @@ optional arguments:
 ~~~
 
 
-The ´-c´ option transforms the text by randomly changing the Latin letters into Cyrillic and Greek looking-like letters. The text is visually the same on regular text editors, but remains altered. 
+The `-c` option transforms the text by randomly changing the Latin letters into Cyrillic and Greek looking-like letters. The text is visually the same on regular text editors, but remains altered. 
 
-The ´-z´ randomly inserts [zero-width joiner][4] and [zero-width non-joiner][3] chararcters within the text.It usually doesn't affect the reading for a Latin text (English, French, Spanish...)
+The `-z` randomly inserts [zero-width joiner][4] and [zero-width non-joiner][3] chararcters within the text.It usually doesn't affect the reading for a Latin text (English, French, Spanish...)
 
 #### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZW(N)J ([from Barack Obama Wikipedia's page][2]) :
 
