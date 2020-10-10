@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 # usage : python3 transform.py ARGS file
 
+import html
 import requests
 from random import shuffle, choice
 import sys, argparse
 
 
 from dictionnaries import *
+
+INVISIBLE_CHARS = [
+    html.unescape("&zwj;"),  # zero width joiner
+    html.unescape("&zwnj;"),  # zero width non joiner
+    "",  # empty char
+]
 
 
 class Scrambler:
@@ -23,8 +30,8 @@ class Scrambler:
 
     __repr__ = __str__
 
-    def __len__(self):
-        return 0
+    # def __len__(self):
+    #     return 0
 
     def __enter__(self):
         return self
@@ -40,9 +47,31 @@ class Scrambler:
         the self.url """
         file = requests.get(self.url).text
 
-    def scramble(self, text) -> str:
+    def scramble(self, text, option="soft") -> str:
         """return the text scrambled
-        eg: teststring: """
+        eg: teststring-> 𝘁ｅ𝐬𝝉ꜱ𝐭𝐫𝖎𝝿𝐠
+        soft: inser non printalbe characters within the text
+        medium: inser non printable characters and change the
+                some latin letters to their Greek or Cyrilic
+                equivalent
+        all: insert non printable chraracters
+             change all possible letter to a randomly picked
+             unicode letter equivalent XXX"""
+        new_text = ""
+        if option == "soft":
+            for char in text:
+                new_text += char + choice(INVISIBLE_CHARS)
+        elif option == "medium":
+            pass
+        elif option == "all":
+            pass
+        else:
+            raise ValueError(f"option '{option}' not implemented")
+        return new_text
+
+    def generate(self, text, n=1000) -> str:
+        """generate n times the text transformed XXX"""
+        return
 
 
 def traiteC(string: str) -> str:
@@ -96,8 +125,13 @@ def traiteUnicode(string: str) -> str:
     return nstr
 
 
-if __name__ == "__main__":
+def main():
+    scrambler = Scrambler()
+    print(scrambler)
 
+
+if __name__ == "__main__":
+    exit(main())
     parser = argparse.ArgumentParser(
         description="Print out the text file using different characters",
         usage="Usage : python transform.py ARGS file",
