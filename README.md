@@ -24,7 +24,7 @@ optional arguments:
 
 
 
-##Examples
+##  Examples
 
 #### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZW(N)J on the demo text:
  
@@ -72,6 +72,7 @@ True
 Check the Guillaume.txt file for more examples
 
 see https://en.wikipedia.org/wiki/Word_joiner for more info on word joiners 
+see https://unix.stackexchange.com/questions/469347/using-uniq-on-unicode-text for why I didn't use the unix command to check the uniqueness of those strings
 
 [1]: http://www.unicode.org/Public/security/revision-03/confusablesSummary.txt "Unicode "
 [2]: https://en.wikipedia.org/wiki/Barack_Obama "Obama"
