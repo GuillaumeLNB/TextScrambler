@@ -1,52 +1,77 @@
 # TextJammer
 
-Using the Unicode looking like characters we can transform a text to make it less machine readable.
+Using the Unicode confusable characters, we can transform a text to a almost looking like one.
 ~~~
-Usage : python transform.py ARGS file
+Usage : python main.py file
+
+Print out the text file using different characters
+
 positional arguments:
-  file     encoded in UTF-8
+  file                  encoded in UTF-8
 
 optional arguments:
-  -h, --help  show this help message and exit
-  -c          Latin letters replaced by Greek and Cyrillic letters
-  -z          add zero width joiner/non-joiner
-  -d          digits replacement
-  --all       all parameters
-  --unicode   all unicode confusable chars
+  -h, --help            show this help message and exit
+  -l LEVEL, --level LEVEL
+                        
+                                1: insert non printable characters within the text
+                                2: replace some latin letters to their Greek or Cyrilic equivalent
+                                3: insert non printable characters and change the some latin  to their Greek or Cyrilic equivalent
+                                4: insert non printable chraracters change all possible letter to a randomly picked unicode letter equivalent
+  -g GENERATE           Scramble x times the string
+  -o OUTFILE            The output file
+
 ~~~
 
 
-The `-c` option transforms the text by randomly changing the Latin letters into Cyrillic and Greek looking-like letters. The text is visually the same on regular text editors, but remains altered. 
 
-The `-z` randomly inserts [zero-width joiner][4] and [zero-width non-joiner][3] characters within the text.It usually doesn't affect the reading for a Latin text (English, French, Spanish...)
+##Examples
 
-#### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZW(N)J ([from Barack Obama Wikipedia's page][2]) :
+#### Replacing randomly the Latin characters by Greek or Cyrillic letters and adding the ZW(N)J on the demo text:
+ 
+~~~
+TextScrambler/src$ python main.py ../txt_files/text_demo.txt  --level 2
+  
+Неrman Μelvillе (Аugust 1, 1819 – Sерtеmbеr 28, 1891) waѕ аn Amerіcan nοvеliѕt, shοrt stоry wrіtеr, and рoеt οf thе Amеriсаn Rеnaissаnсе реrіοd. Amοng his bеѕt-knοwn works arе Мoby-Diсk (1851), Τyрee (1846), а romаntiсized aсcοunt of his ехperienсеs in Pоlynеѕіа, and Віlly Βudd, Sаilоr, а роѕthumοuѕly рublіshed nοvella. Аlthοugh hiѕ rеputatiоn wаs nоt hіgh аt the tіme оf hіѕ dеath, thе centеnnіаl οf hіѕ bіrth іn 1919 was thе startіng pοint οf a Мelvillе rеvіval аnd Mοby-Dісk grеw to be cоnsіdеrеd оne οf thе grеаt Αmerican novеls.
+~~~
 
-Β‍а‌r‍а‍с‍k‌ Η‌u‍ѕ‍ѕ‍е‍і‍n‌ О‌b‌а‌m‍а‍ І‍І‍ (b‌ο‍r‌n‍ Α‌u‍g‍u‍ѕ‍t‌ 4, 1961) і‍ѕ‌ а‌n‌ А‍m‌е‌r‍і‍с‌а‍n‌ а‌t‌t‍о‌r‌n‌е‌y‍ а‌n‌d‌ р‍ο‍l‍і‌t‍і‍с‌і‍а‌n‌ w‍h‍ο‍ ѕ‌е‌r‌v‍е‌d‌ а‌ѕ‍ t‌h‌е‍ 44t‍h‌ Ρ‍r‍е‍ѕ‍і‌d‌е‌n‌t‍ ο‍f‍ t‌h‌е‌ U‌n‌і‍t‍е‌d‍ Ѕ‌t‍а‍t‍е‍ѕ‌ f‍r‍ο‌m‍ Ј‌а‍n‌u‌а‍r‍y‍ 20, 2009, t‍ο‍ Ј‍а‌n‌u‍а‍r‍y‌ 20, 2017. А‌ m‌е‌m‍b‍е‍r‌ о‌f‍ t‍h‍е‍ D‍е‍m‍ο‌с‍r‌а‍t‌і‌с‍ Ρ‍а‍r‌t‍y‌, h‌е‍ w‌а‍ѕ‌ t‌h‌е‍ f‍і‍r‍ѕ‍t‌ Α‍f‍r‌і‍с‍а‌n‌ А‍m‍е‍r‌і‌с‍а‌n‌ t‌ο‍ ѕ‌е‍r‍v‌е‍ а‍ѕ‌ р‍r‍е‍ѕ‌і‌d‍е‌n‍t‌. Η‌е‌ w‌а‍ѕ‍ р‌r‌е‍v‌і‍ο‌u‌ѕ‌l‌y‌ а‍ U‌n‌і‌t‍е‌d‍ Ѕ‍t‌а‌t‍е‌ѕ‍ Ѕ‍е‌n‍а‍t‌ο‌r‌ f‌r‌о‍m‍ І‌l‍l‌і‍n‍ο‌і‍ѕ‌ а‌n‌d‍ а‌ m‌е‌m‌b‍е‌r‍ ο‌f‌ t‍h‌е‌ І‌l‌l‍і‍n‍ο‌і‍ѕ‌ Ѕ‌t‍а‌t‍е‍ Ѕ‍е‍n‌а‌t‌е‌.
-
-Funny thing is regular search engines can't find the original webpage (as free online plagiarism checkers).
+Funny thing is search engines can't find the original webpage (as free online plagiarism checkers). Searching for "Μelvillе" (copy-paste it) on Google doesn't return any match, though "Melville" does.
 
 #### Using all of the confusable characters of unicode (see [the unicode confusable characters][1]), we can generate weird looking text worthy of old spam messages : 
 
-Β𝙖𝚛𝜶𝒸𝜿 𝙃ц𝓼𝐬ⅇ𝒾ո  ՕᏏ𝕒mａ II ﴾𝙗ｏᴦ𝝿 𝘼𝔲ɡᴜ𝗌𝘵 𝟺¸ 1৭𝟨1﴿ ι𝓈 𝖺𝔫 𝗔m𝒆𝓇ӏ𝑐⍺𝖓 𝙖𝛕𝘁𝞼𝒓π𝔢𝑦 ⍺𝟉𝚍 𝜚𝜎𝟙˛𝓉𝖎𝖼𝗶𝞪ℼ wհ𝞂 ƽ𝑒𝙧ט𝑒𝖽 𝕒ѕ 𝚝ｈ𝒆 𝟺𝟦𝘁𝘩 ℙ𝐫℮𝕤𝜄𝐝𝐞𝜛𝛕 ං𝔣 𝚝𝓱𝔢 𝐔𝚗𝔦τеꓒ Ѕ𝙩ɑτ𝙚𝚜 ẝ𝖗𝞸m 𝑱𝘢𝚗𝓊а𝔯ｙ Ꙅ0٫ 𝟸00Ꝯ٫ 𝘁𝔬 𝙹𝒂ռ𝚞𝑎𝙧𝔂 𝟸0¸᠎Ꙅ01𝟟․ ᗅ mℯm𝖇𝚎ᴦ 𝙤𝐟 𝗍һ𝕖 𝐷𝓮m𝚘𝐜𝙧𝖆т𝒾ⅽ 𝔓𝙖𝓇т𝛾¸᠎ℎ𝕖  wɑ𝙨 𝓽𝚑℮᠎𝕗ı𝐫ｓ𝓽 Αքгⅈᴄ𝛂𝑛 𝚨m𝔢𝑟ⅰ𝙘𝒂𝘯 τⲟ 𝙨𝒆𝔯𝞶𝓮  𝘢𝓈 𝞎𝗋𝖊𝘴˛𝔡𝕖ϖ𝞃۔ Нℯ wａ𝔰 ϱⲅ𝙚ט𝐢𝒐ս𝔰𝟷𝜸 𝞪 𝖴𝖓⍳𝕥℮ⅆ 𝗦𝝉𝛂𝖙ℯ𝕤 Տ𝖊π𝙖𝒕ം𝖗 𝖿𝐫ⲟm I|𝗹𝞲𝚗𝝈ｉ𝚜 𝑎𝑛𝐝 ａ m𝐞m𝖻ℯ𝓻 ℴſ 𝒕հ𝚎 Iⵏ𝔩𝖎𝕟օɪ𝓼 Տ𝑡α𝞃ｅ Ѕ𝓮𝗇𝓪𝖙𝒆․
+~~~
+TextScrambler/src$ python main.py ../txt_files/text_demo.txt  --level 4
+~~~
+  Ⲏ‌𝚎‌𝓻‍m‍а‌n‍ ‍Ꮇ‌𝚎‌𝚕‍𝝂‍𝛊‌𝟷‍ﺎ‍𝓮‍ ‍〔‍𝞐‍ꞟ‌𝒈‍𝞾‍𝔰‌𝗍‌ ‍1‍,‍ ‍1‍8‌1‍𑢬‌ ‍–‍ ‌Տ‌ҽ‌⍴‍𝕥‍𝓮‌m‌𝚋‌𝓮‌𝕣‌ ‌🯲‍𝟾‍,‍ ‍1‍𝟪‌Ꝯ‌1‍〕‍ ‌ꮃ‌𝔞‍ｓ‍ ‌ａ‌𝑛‌ ‍𐊠‌m‍℮‍𝕣‍і‍𝔠‌α‌ռ‌ ‍𝒏‍𝞼‍𝕧‍ℯ‌ᛁ‌𝞲‌𝘴‍𝒕‌ꓹ‍ ‌𝗌‌𝙝‍𑣗‍𝔯‌𝔱‌ ‌𝑠‌𝘵‍𝘰‌𝕣‍γ‍ ‍𝑤‍ⲅ‌𝞲‍𝗍‍𝐞‌𝓻‍,‍ ‌𝒶‍𝓃‍ⅆ‌ ‍𝚙‍𝞼‌𝕖‍𝔱‌ ‍ဝ‍𝖿‌ ‍𝖙‌𝓱‌𝖊‌ ‍ᗅ‌m‌𝖊‍ⲅ‍𝘪‌𝒸‍𝛼‍ռ‍ ‌𝚁‍e‌𝗇‌𝕒‌𝒾‌𝒔‌ｓ‌𝐚‌𝘯‌𝖼‌𝑒‌ ‍𝔭‍𝗲‍ꭈ‍і‍ℴ‍𝔡‍.‌ ‍𝑨‌m‌ⲟ‍𝚗‌ƍ‍ ‌հ‍ⅈ‍𝙨‍ ‌𝙗‍℮‌s‍𝒕‍⁃‌𝕜‌𝗇‌௦‍ա‌n‍ ‍𑜎‍ᴑ‍ⲅ‌k‍ꜱ‍ ‌ɑ‍𝗋‍ｅ‍ ‌𝔐‌ﮩ‌Ꮟ‍𝛄‍‒‍𝖣‌𝖎‍𝙘‌𝓀‍ ‌［‌1‍𞣋‌𑢻‌1‍❳‌,‌ ‍Τ‍ꭚ‍𝐩‍е‌𝖊‍ ‌(‌1‍𝟪‍4‌𝟨‌)‍,‍ ‌𝖆‍ ‍𝒓‌ﻩ‌m‌𝙖‍ո‌𝚝‌𝝸‍𝒄‍ɩ‌𝘇‌𝐞‌𝚍‍ ‍𝖆‌c‌𝓬‍𝗼‌𝘶‌𝒏‍𝖙‌ ‌٥‌𝘧‍ ‌𝗁‌𝕚‍𝙨‌ ‍ℯ‌𝚡‍ⲣ‌℮‌𝚛‌𝐢‍𝒆‌𝒏‌𝑐‍𝐞‌𑣁‍ ‍ı‌𝖓‌ ‌𝑃‍𐓪‌𐊊‍𝛄‌𝐧‍ℯ‌𐑈‌ͺ‍𝛼‍‚‍ ‌𝒶‍𝙣‌𝗱‌ ‌𐊂‍і‍ℑ‌𝝞‌ｙ‍ ‌𝖡‌𝛖‍d‍ⅆ‌ꓹ‍ ‌𐐠‍𝑎‍𝜾‌𝗜‌ഠ‌ꭇ‌٫‍ ‍𝖆‌ ‍𝔭‍ᴏ‍𝒔‍𝑡‌𝘩‍𝚞‌m‌۵‍𝒖‍𝚜‍𐌠‍𝓎‌ ‍𝜌‍𐓶‌𝔟‌Ɩ‍𝚤‍𝘀‍𝚑‍𝔢‍ꓒ‌ ‌𝗻‌ﮦ‍𝘷‌ℯ‌ا‌𞣇‍𝒶‍܂‍ ‌ꓮ‌𝕀‍𝐭‍𝒉‌ﮫ‌𝕦‍ℊ‍𝔥‌ ‌𝗵‍𝚒‍𝗌‍ ‌𝗋‍𝑒‌𝞺‍𑣘‍𝘵‌𝗮‍𝚝‍ι‍ﮫ‍𝓷‍ ‍w‌⍺‍s‌ ‍n‍օ‌𝙩‌ ‍𝚑‍⍳‍𝓰‍𝙝‍ ‍ａ‍𝖙‍ ‌𝐭‌𝖍‍𝔢‌ ‍𝔱‌𝕚‌m‌𝐞‍ ‌𐓪‍𝑓‍ ‍𝒽‍ꙇ‌𝚜‌ ‍𝘥‌𝙚‍ɑ‍𝙩‌𝕙‍‚‌ ‌𝚝‍𝕙‌ҽ‌ ‍𝔠‍𝖊‌ո‌𝐭‌𝗲‌𝓃‌𝖓‌𝖎‍𝘢‌ℓ‌ ‍𝞼‌𝖋‌ ‌𝔥‌𑣃‍𝐬‍ ‍𝐛‌𝜾‍𝔯‍𝓽‌հ‌ ‍𝚒‍ռ‍ ‌1‍𝟫‍1‌𑣌‍ ‌ɯ‍𝔞‌s‌ ‌𝒕‌𝗁‌𝙚‌ ‌𝘴‌𝓽‌𝑎‍ꭈ‍𝗍‍ӏ‌𝖓‍𝖌‍ ‍𝛒‍𞺄‌𝐢‌𝗻‍𝑡‍ ‌൦‌𝖋‍ ‍ａ‍ ‍Ⅿ‍𝚎‍𝔩‌ｖ‌𝜾‌𝙄‍Ι‌𝖊‌ ‍г‌𝙚‌𝛎‍ι‍𝝼‌𝚊‌Ｉ‍ ‌𝙖‍ո‍ⅆ‍ ‍М‍𐓪‌𝓫‍𝛄‍–‌𝔇‌𝛊‌𝑐‍𝙠‍ ‍ց‌ꮁ‌ꬲ‌𝐰‍ ‍𝓽‍ｏ‌ ‍𝕓‍е‍ ‌𝒄‌𝝾‌𝓷‌ꜱ‍ͺ‍𝘥‌𝑒‍𝓇‍𝖾‌ⅾ‍ ‍𝛐‌𝓷‌℮‌ ‌𝚘‍𝕗‌ ‍𝓽‍𝓱‍𝓮‌ ‍𝗴‌𝕣‌ꬲ‍𝛂‌𝑡‌ ‌𝚨‌m‌𝖾‌𝖗‌𝜾‌ϲ‌α‌𝐧‌ ‍𝖓‌ﻬ‍𝖛‍ꬲ‍𝙡‍𝒔‍𝅭
 
+#### Generate several unique strings from a text
 
-It is also possible using this method to generate different strings.
-For instance each of the following strings is unique:
-* G‍u‍і‍l‍l‌а‌u‍m‌е
-* G‌‍u‍‍і‍‍l‍‍l‍‌а‍‌u‌‍m‍‌е
-* G‌‌‍u‌‍‍і‍‍‍l‌‍‍l‌‍‌а‌‍‌u‌‌‍m‍‍‌е
-* G‌‌‌‍u‌‌‍‍і‍‍‍‍l‌‌‍‍l‌‌‍‌а‌‌‍‌u‌‌‌‍m‌‍‍‌е
-* G‌‌‌‌‍u‌‌‌‍‍і‌‍‍‍‍l‍‌‌‍‍l‌‌‌‍‌а‍‌‌‍‌u‌‌‌‌‍m‌‌‍‍‌е
-* G‌‌‌‌‌‍u‍‌‌‌‍‍і‌‌‍‍‍‍l‍‍‌‌‍‍l‌‌‌‌‍‌а‌‍‌‌‍‌u‌‌‌‌‌‍m‍‌‌‍‍‌е
-* G‍‌‌‌‌‌‍u‌‍‌‌‌‍‍і‍‌‌‍‍‍‍l‌‍‍‌‌‍‍l‌‌‌‌‌‍‌а‍‌‍‌‌‍‌u‌‌‌‌‌‌‍m‌‍‌‌‍‍‌е
-* G‌‍‌‌‌‌‌‍u‍‌‍‌‌‌‍‍і‌‍‌‌‍‍‍‍l‌‌‍‍‌‌‍‍l‍‌‌‌‌‌‍‌а‍‍‌‍‌‌‍‌u‍‌‌‌‌‌‌‍m‍‌‍‌‌‍‍‌е
-* G‌‌‍‌‌‌‌‌‍u‌‍‌‍‌‌‌‍‍і‍‌‍‌‌‍‍‍‍l‍‌‌‍‍‌‌‍‍l‌‍‌‌‌‌‌‍‌а‍‍‍‌‍‌‌‍‌u‍‍‌‌‌‌‌‌‍m‍‍‌‍‌‌‍‍‌е
-* G‍‌‌‍‌‌‌‌‌‍u‌‌‍‌‍‌‌‌‍‍і‌‍‌‍‌‌‍‍‍‍l‌‍‌‌‍‍‌‌‍‍l‍‌‍‌‌‌‌‌‍‌а‍‍‍‍‌‍‌‌‍‌u‌‍‍‌‌‌‌‌‌‍m‍‍‍‌‍‌‌‍‍‌е
-* G‌‍‌‌‍‌‌‌‌‌‍u‌‌‌‍‌‍‌‌‌‍‍і‍‌‍‌‍‌‌‍‍‍‍l‌‌‍‌‌‍‍‌‌‍‍l‍‍‌‍‌‌‌‌‌‍‌а‍‍‍‍‍‌‍‌‌‍‌u‌‌‍‍‌‌‌‌‌‌‍m‌‍‍‍‌‍‌‌‍‍‌е
-* ... check the Guillaume.txt file for more examples
+```
+$ echo 'Guillaume' >dummy_file.txt
+$ python main.py dummy_file.txt  --level 3 --generate 1000 --outfile Guillaume.txt
+$ head Guillaume.txt # each of the following line is unique
+G‌u‍і‍l‌l‌a‌u‌m‌e‍
+G‍u‌i‍l‍l‍a‍u‍m‍e‍
+G‌u‌і‌l‍l‌a‌u‍m‌e‌
+G‍u‍і‌l‌l‍a‌u‍m‌е‌
+G‌u‌i‌l‌l‍а‌u‍m‌е‍
+G‌u‍i‌l‍l‌а‌u‍m‌е‍
+G‍u‌i‌l‍l‌a‌u‍m‍e‍
+G‍u‌і‌l‍l‍а‍u‍m‍e‌
+G‌u‍і‍l‌l‌а‍u‍m‌е‍
+G‌u‌і‍l‌l‌а‍u‍m‍e‌
+ ...
 
+```
+```
+>>> guillaumes = open("dummy_file.txt").read().splitlines()
+>>> len(set(guillaumes)) == len(guillaumes)
+True
+>>> # all unique
+```
 
+Check the Guillaume.txt file for more examples
+
+see https://en.wikipedia.org/wiki/Word_joiner for more info on word joiners 
 
 [1]: http://www.unicode.org/Public/security/revision-03/confusablesSummary.txt "Unicode "
 [2]: https://en.wikipedia.org/wiki/Barack_Obama "Obama"
